@@ -154,11 +154,11 @@ class LoadingViewController : UIViewController, LoadController {
         
         self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[topbar]", options: [], metrics: nil, views: viewDict))
         
-        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|[collection]|", options: [], metrics: nil, views: viewDict))
+        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("V:|-20-[collection]-20-|", options: [], metrics: nil, views: viewDict))
         
         self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[topbar]|", options: [], metrics: nil, views: viewDict))
         
-        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|[collection]|", options: [], metrics: nil, views: viewDict))
+        self.view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat("H:|-20-[collection]-20-|", options: [], metrics: nil, views: viewDict))
         
     }
     
