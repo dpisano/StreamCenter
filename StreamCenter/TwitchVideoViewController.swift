@@ -135,7 +135,7 @@ class TwitchVideoViewController : UIViewController {
     * and displays it
     */
     func initializePlayerView() {
-        self.videoView = VideoView(frame: self.view.bounds)
+        self.videoView = VideoView(frame: videoViewFrame())
         self.videoView?.setPlayer(self.videoPlayer!)
         self.videoView?.setVideoFillMode(AVLayerVideoGravityResizeAspect)
         
@@ -287,7 +287,7 @@ class TwitchVideoViewController : UIViewController {
         
         //animate the hiding of the chat view
         UIView.animateWithDuration(0.5, animations: { () -> Void in
-            self.videoView!.frame = self.view.frame
+            self.videoView!.frame = self.videoViewFrame()
             self.chatView!.frame.origin.x = CGRectGetMaxX(self.view.frame)
         }) { (finished) -> Void in
                 //The chat view
@@ -349,5 +349,15 @@ class TwitchVideoViewController : UIViewController {
                 hideChat()
             }
         }
+    }
+
+    func videoViewFrame() -> CGRect {
+        let padding : CGFloat = 32
+        let bounds : CGRect = self.view.bounds;
+        return  CGRectMake(bounds.origin.x + padding,
+                           bounds.origin.y + padding,
+                           bounds.size.width - 2 * padding,
+                           bounds.size.height - 2 * padding
+        )
     }
 }
