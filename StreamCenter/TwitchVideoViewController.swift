@@ -252,17 +252,14 @@ class TwitchVideoViewController : UIViewController {
     func showChat() {
         //Resize video view
         var frame = self.videoView?.frame
-        frame?.size.width -= 400
+        frame?.size.width -= 380
         frame?.size.height -= 225
         frame?.origin.y += (225/2)
-        
-        
-        
+
         //The chat view
-        self.chatView = TwitchChatView(frame: CGRect(x: self.view.bounds.width, y: 0, width: 400, height: self.view!.bounds.height), channel: self.currentStream!.channel)
+        self.chatView = TwitchChatView(frame: CGRect(x: self.view.bounds.width, y: 0, width: 380, height: self.view!.bounds.height - 40), channel: self.currentStream!.channel)
         self.chatView!.startDisplayingMessages()
         if let modalMenu = modalMenu {
-            
             self.view.insertSubview(self.chatView!, belowSubview: modalMenu)
         } else {
             self.view.addSubview(self.chatView!)
@@ -273,7 +270,7 @@ class TwitchVideoViewController : UIViewController {
         
         //animate the showing of the chat view
         UIView.animateWithDuration(0.5) { () -> Void in
-            self.chatView!.frame = CGRect(x: self.view.bounds.width - 400, y: 0, width: 400, height: self.view!.bounds.height)
+            self.chatView!.frame = CGRect(x: self.view.bounds.width - 400, y: 20, width: 380, height: self.view!.bounds.height - 40)
             if let videoView = self.videoView, frame = frame {
                 videoView.frame = frame
             }
@@ -281,7 +278,6 @@ class TwitchVideoViewController : UIViewController {
     }
     
     func hideChat() {
-        
         rightSwipe.enabled = false
         leftSwipe.enabled = true
         
