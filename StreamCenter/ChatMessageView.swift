@@ -12,12 +12,15 @@ class ChatMessageView : UIView {
     let message : NSAttributedString
     
     init(message: NSAttributedString, width : CGFloat, position : CGPoint) {
+        let desiredFont = UIFont.systemFontOfSize(29)
+        let mutableMessage : NSMutableAttributedString = message.mutableCopy() as! NSMutableAttributedString
+        mutableMessage.addAttribute(NSFontAttributeName, value: desiredFont, range: NSMakeRange(0, message.length))
+        self.message = mutableMessage as NSAttributedString
+
         let maxSize = CGSize(width: width, height: 10000)
-        let size = message.boundingRectWithSize(maxSize, options: [.UsesLineFragmentOrigin, .UsesFontLeading], context: nil)
-        self.message = message
+        let size = self.message.boundingRectWithSize(maxSize, options: [.UsesLineFragmentOrigin, .UsesFontLeading], context: nil)
         
         super.init(frame: CGRect(origin: position, size: CGSize(width: width, height: size.height+10)))
-        
         self.backgroundColor = UIColor.clearColor()
     }
 
