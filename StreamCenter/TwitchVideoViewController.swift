@@ -276,7 +276,7 @@ class TwitchVideoViewController : UIViewController {
         
         //animate the showing of the chat view
         UIView.animateWithDuration(0.5) { () -> Void in
-            self.chatView!.frame = CGRect(x: self.view.bounds.width - 400, y: 20, width: 380, height: self.view!.bounds.height - 40)
+            self.chatView!.frame = CGRect(x: self.view.bounds.width - 420, y: 20, width: 380, height: self.view!.bounds.height - 40)
             if let videoView = self.videoView, frame = frame {
                 videoView.frame = frame
             }
