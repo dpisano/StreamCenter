@@ -85,13 +85,13 @@ class TwitchGamesViewController : LoadingViewController {
         let imageView = UIImageView(image: UIImage(named: "twitch"))
         imageView.contentMode = .ScaleAspectFit
         
-        super.configureViews("Top Games", centerView: imageView, leftView: self.searchField, rightView: self.twitchButton)
+        super.configureViews("Top Games", centerView: imageView, leftView: self.searchField, rightView: nil)
     }
     
     func authorizeUser() {
-        let authViewController = TwitchAuthViewController()
-        authViewController.delegate = self
-        presentViewController(authViewController, animated: true, completion: nil)
+        let qrController = TwitchAuthViewController()
+        qrController.delegate = self
+        presentViewController(qrController, animated: true, completion: nil)
     }
     
     override func reloadContent() {
