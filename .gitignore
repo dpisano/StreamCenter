@@ -32,7 +32,3 @@ Podfile~
 
 Cartfile~
 Carthage
-
-## Super Secret build configuration
-StreamCenter/NotMySecretConfigWink.xcconfig
-

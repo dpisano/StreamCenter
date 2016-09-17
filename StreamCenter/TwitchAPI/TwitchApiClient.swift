@@ -6,7 +6,7 @@ struct TwitchApiClient : TwitchApi {
         //First we build the url according to the channel we desire to get stream link
         let accessUrlString = String(format: "https://api.twitch.tv/api/channels/%@/access_token", channel)
 
-        Alamofire.request(.GET, accessUrlString, parameters: [:], encoding: .URL, headers: headers())
+        Alamofire.request(.GET, accessUrlString)
             .responseJSON { response in
 
                 if response.result.isSuccess {
@@ -80,13 +80,12 @@ struct TwitchApiClient : TwitchApi {
     func getTopGamesWithOffset(offset : Int, limit : Int, completionHandler: (games: [TwitchGame]?, error: ServiceError?) -> ()) {
         //First we build the url according to the game we desire to get infos
         let gamesUrlString = "https://api.twitch.tv/kraken/games/top"
-        let parameters: [String: AnyObject] = ["limit"   : limit,
-                                               "offset"  : offset]
 
-        Alamofire.request(.GET, gamesUrlString,
-            parameters: parameters,
-            encoding: .URL,
-            headers: headers()).responseJSON { response in
+        Alamofire.request(.GET, gamesUrlString, parameters :
+            [   "limit"   : limit,
+                "offset"  : offset])
+            .responseJSON { response in
+
                 if response.result.isSuccess {
                     if let gamesInfoDict = response.result.value as? [String : AnyObject] {
                         if let gamesDicts = gamesInfoDict["top"] as? [[String : AnyObject]] {
@@ -123,15 +122,13 @@ struct TwitchApiClient : TwitchApi {
     func getTopStreamsForGameWithOffset(game : String, offset : Int, limit : Int, completionHandler: (streams: [TwitchStream]?, error: ServiceError?) -> ()) {
         //First we build the url according to the game we desire to get infos
         let streamsUrlString = "https://api.twitch.tv/kraken/streams"
-        let parameters: [String: AnyObject] = ["limit"      : limit,
-                                               "offset"     : offset,
-                                               "game"       : game,
-                                               "stream_type": "live"]
 
-        Alamofire.request(.GET, streamsUrlString,
-            parameters: parameters,
-            encoding: .URL,
-            headers: headers()).responseJSON { response in
+        Alamofire.request(.GET, streamsUrlString, parameters :
+            [   "limit"         : limit,
+                "offset"        : offset,
+                "game"          : game,
+                "stream_type"   : "live"  ])
+            .responseJSON { response in
 
                 if response.result.isSuccess {
                     if let streamsInfoDict = response.result.value as? [String : AnyObject] {
@@ -171,13 +168,13 @@ struct TwitchApiClient : TwitchApi {
     func getGamesWithSearchTerm(term: String, offset : Int, limit : Int, completionHandler: (games: [TwitchGame]?, error: ServiceError?) -> ()) {
         //First we build the url according to the game we desire to get infos
         let searchUrlString = "https://api.twitch.tv/kraken/search/games"
-        let parameters: [String: AnyObject] = ["query"     : term,
-                                               "type"      : "suggest",
-                                               "live"      : true]
-            Alamofire.request(.GET, searchUrlString,
-                parameters: parameters,
-                encoding: .URL,
-                headers: headers()).responseJSON { response in
+
+        Alamofire.request(.GET, searchUrlString, parameters :
+            [   "query"     : term,
+                "type"      : "suggest",
+                "live"      : true          ])
+            .responseJSON { response in
+
                 if response.result.isSuccess {
                     if let gamesInfoDict = response.result.value as? [String : AnyObject] {
                         if let gamesDicts = gamesInfoDict["games"] as? [[String : AnyObject]] {
@@ -214,14 +211,13 @@ struct TwitchApiClient : TwitchApi {
     func getStreamsWithSearchTerm(term : String, offset : Int, limit : Int, completionHandler: (streams: [TwitchStream]?, error: ServiceError?) -> ()) {
         //First we build the url according to the game we desire to get infos
         let streamsUrlString = "https://api.twitch.tv/kraken/search/streams"
-        let parameters: [String: AnyObject] = ["limit"     : limit,
-                                               "offset"    : offset,
-                                               "query"     : term]
 
-        Alamofire.request(.GET, streamsUrlString,
-            parameters: parameters,
-            encoding: .URL,
-            headers: headers()).responseJSON { response in
+        Alamofire.request(.GET, streamsUrlString, parameters :
+            [   "limit"     : limit,
+                "offset"    : offset,
+                "query"     : term    ])
+            .responseJSON { response in
+
                 if response.result.isSuccess {
                     if let streamsInfoDict = response.result.value as? [String : AnyObject] {
                         if let streamsDicts = streamsInfoDict["streams"] as? [[String : AnyObject]] {
@@ -265,14 +261,12 @@ struct TwitchApiClient : TwitchApi {
         }
         //First we build the url according to the game we desire to get infos
         let streamsUrlString = "https://api.twitch.tv/kraken/streams/followed"
-        let parameters: [String: AnyObject] = ["limit"         : limit,
-                                               "offset"        : offset,
-                                               "oauth_token"   : token]
 
-        Alamofire.request(.GET, streamsUrlString,
-            parameters: parameters,
-            encoding: .URL,
-            headers: headers()).responseJSON { response in
+        Alamofire.request(.GET, streamsUrlString, parameters :
+            [   "limit"         : limit,
+                "offset"        : offset,
+                "oauth_token"   : token     ])
+            .responseJSON { response in
 
                 if response.result.isSuccess {
                     if let streamsInfoDict = response.result.value as? [String : AnyObject] {
@@ -304,13 +298,5 @@ struct TwitchApiClient : TwitchApi {
 
     func getEmoteUrlStringFromId(id : String) -> String {
         return  "http://static-cdn.jtvnw.net/emoticons/v1/\(id)/1.0"
-    }
-
-    private func headers() -> [String: String] {
-        let dictionary = NSBundle.mainBundle().infoDictionary
-        let rawClientId = dictionary!["SECRET_CLIENT_ID"] as! String
-        let clientId = rawClientId.stringByReplacingOccurrencesOfString("\\", withString: "")
-
-        return ["Client-ID": clientId]
     }
 }
