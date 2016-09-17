@@ -645,7 +645,7 @@
 				TargetAttributes = {
 					090AB8DD1BA5BFDF00CDB05D = {
 						CreatedOnToolsVersion = 7.1;
-						DevelopmentTeam = XAN2GRZS9J;
+						DevelopmentTeam = X3TZWBGFYQ;
 					};
 					F7DB8C581D03B880004443EE = {
 						CreatedOnToolsVersion = 7.3;
@@ -990,9 +990,9 @@
 				);
 				INFOPLIST_FILE = StreamCenter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.timjarratt.scx;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dpisano.scx;
 				PRODUCT_NAME = StreamCenter;
-				PROVISIONING_PROFILE = "117ec930-3252-437c-b5e0-3b62922a9d93";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -1012,9 +1012,9 @@
 				INFOPLIST_FILE = StreamCenter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = com.timjarratt.scx;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dpisano.scx;
 				PRODUCT_NAME = StreamCenter;
-				PROVISIONING_PROFILE = "117ec930-3252-437c-b5e0-3b62922a9d93";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
