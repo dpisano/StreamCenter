@@ -13,7 +13,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         let window = UIWindow.init(frame: UIScreen.mainScreen().bounds)
-        window.rootViewController = TwitchGamesViewController()
+        window.rootViewController = SourceTabController()
         window.makeKeyAndVisible()
         self.window = window
         
