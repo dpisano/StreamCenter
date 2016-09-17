@@ -6,7 +6,8 @@ struct TwitchApiClient : TwitchApi {
         //First we build the url according to the channel we desire to get stream link
         let accessUrlString = String(format: "https://api.twitch.tv/api/channels/%@/access_token", channel)
 
-        Alamofire.request(.GET, accessUrlString)
+        Alamofire.request(.GET, accessUrlString, headers :
+            [   "Client-ID"   : "jzkbprff40iqj646a697cyrvl0zt2m6"])
             .responseJSON { response in
 
                 if response.result.isSuccess {
@@ -22,7 +23,9 @@ struct TwitchApiClient : TwitchApi {
                                         "type"              : "any",
                                         "p"                 : Int(arc4random_uniform(99999)),
                                         "token"             : token,
-                                        "sig"               : sig])
+                                        "sig"               : sig],
+                                    headers :
+                                    [   "Client-ID"   : "jzkbprff40iqj646a697cyrvl0zt2m6"])
                                     .responseString { response in
                                         if response.result.isSuccess {
                                             guard let _ = response.result.value else {
@@ -55,7 +58,7 @@ struct TwitchApiClient : TwitchApi {
                         }
                     }
                     //Error with the access token json response
-                    Logger.Error("Could not parse the access token response as JSON")
+                    Logger.Error("Could not parse the access token response as JSON Stream")
                     completionHandler(streams: nil, error: .JSONError)
                     return
 
@@ -82,8 +85,11 @@ struct TwitchApiClient : TwitchApi {
         let gamesUrlString = "https://api.twitch.tv/kraken/games/top"
 
         Alamofire.request(.GET, gamesUrlString, parameters :
-            [   "limit"   : limit,
-                "offset"  : offset])
+            [   "Client-ID"   : "jzkbprff40iqj646a697cyrvl0zt2m6",
+                "limit"       : limit,
+                "offset"      : offset],
+            headers :
+            [   "Client-ID"   : "jzkbprff40iqj646a697cyrvl0zt2m6"])
             .responseJSON { response in
 
                 if response.result.isSuccess {
@@ -100,7 +106,7 @@ struct TwitchApiClient : TwitchApi {
                             return
                         }
                     }
-                    Logger.Error("Could not parse response as JSON")
+                    Logger.Error("Could not parse response as JSON Games List")
                     completionHandler(games: nil, error: .JSONError)
                     return
                 }
@@ -127,7 +133,9 @@ struct TwitchApiClient : TwitchApi {
             [   "limit"         : limit,
                 "offset"        : offset,
                 "game"          : game,
-                "stream_type"   : "live"  ])
+                "stream_type"   : "live"],
+            headers :
+            [   "Client-ID"   : "jzkbprff40iqj646a697cyrvl0zt2m6"])
             .responseJSON { response in
 
                 if response.result.isSuccess {
@@ -146,7 +154,7 @@ struct TwitchApiClient : TwitchApi {
                             return
                         }
                     }
-                    Logger.Error("Could not parse response as JSON")
+                    Logger.Error("Could not parse response as JSON Stream List")
                     completionHandler(streams: nil, error: .JSONError)
                     return
                 }
@@ -172,7 +180,9 @@ struct TwitchApiClient : TwitchApi {
         Alamofire.request(.GET, searchUrlString, parameters :
             [   "query"     : term,
                 "type"      : "suggest",
-                "live"      : true          ])
+                "live"      : true],
+            headers :
+            [   "Client-ID"   : "jzkbprff40iqj646a697cyrvl0zt2m6"])
             .responseJSON { response in
 
                 if response.result.isSuccess {
@@ -215,7 +225,9 @@ struct TwitchApiClient : TwitchApi {
         Alamofire.request(.GET, streamsUrlString, parameters :
             [   "limit"     : limit,
                 "offset"    : offset,
-                "query"     : term    ])
+                "query"     : term],
+            headers :
+            [   "Client-ID"   : "jzkbprff40iqj646a697cyrvl0zt2m6"])
             .responseJSON { response in
 
                 if response.result.isSuccess {
