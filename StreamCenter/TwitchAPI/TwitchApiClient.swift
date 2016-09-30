@@ -308,9 +308,7 @@ struct TwitchApiClient : TwitchApi {
     }
 
     fileprivate func headers() -> [String: String] {
-        let dictionary = Bundle.main.infoDictionary
-        let rawClientId = dictionary!["SECRET_CLIENT_ID"] as! String
-        let clientId = rawClientId.replacingOccurrences(of: "\\", with: "")
+        let clientId = "jzkbprff40iqj646a697cyrvl0zt2m6"
 
         return ["Client-ID": clientId]
     }

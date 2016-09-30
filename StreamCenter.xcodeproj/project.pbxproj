@@ -59,7 +59,6 @@
 		F7077D991D0A833100A63486 /* ModalMenuViewSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7077D981D0A833100A63486 /* ModalMenuViewSpec.swift */; };
 		F74200221D6A88DA00B423BE /* UIKit_PivotalSpecHelper.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = F79F61F01D6A836A0038CBE2 /* UIKit_PivotalSpecHelper.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		F74200231D6A88DA00B423BE /* UIKit_PivotalSpecHelperStubs.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = F7DB8CAB1D04FFD6004443EE /* UIKit_PivotalSpecHelperStubs.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		F77322901D8BCB1D00D574A9 /* NotMySecretConfigWink.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = F773228F1D8BCB1D00D574A9 /* NotMySecretConfigWink.xcconfig */; };
 		F79D03601D6A6EA500DCC74E /* TwitchSearchResultsViewControllerSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79D035F1D6A6EA500DCC74E /* TwitchSearchResultsViewControllerSpec.swift */; };
 		F79F61F21D6A860E0038CBE2 /* UIKit_PivotalSpecHelper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F79F61F01D6A836A0038CBE2 /* UIKit_PivotalSpecHelper.framework */; };
 		F7DB8C0A1D03AB99004443EE /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7DB8C071D03AB99004443EE /* Alamofire.framework */; };
@@ -640,16 +639,17 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0710;
-				LastUpgradeCheck = 0710;
+				LastUpgradeCheck = 0800;
 				ORGANIZATIONNAME = "Rivus Media Inc";
 				TargetAttributes = {
 					090AB8DD1BA5BFDF00CDB05D = {
 						CreatedOnToolsVersion = 7.1;
-						DevelopmentTeam = XAN2GRZS9J;
+						DevelopmentTeam = X3TZWBGFYQ;
 						LastSwiftMigration = 0800;
 					};
 					F7DB8C581D03B880004443EE = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = X3TZWBGFYQ;
 						LastSwiftMigration = 0800;
 						TestTargetID = 090AB8DD1BA5BFDF00CDB05D;
 					};
@@ -798,7 +798,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				090AB8E91BA5BFDF00CDB05D /* Assets.xcassets in Resources */,
-				F77322901D8BCB1D00D574A9 /* NotMySecretConfigWink.xcconfig in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -909,12 +908,16 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: dmp9693@gmail.com (654C68H8J8)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = X3TZWBGFYQ;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -933,6 +936,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "066ce074-734e-45cd-aece-9de3a3aa20fe";
 				SDKROOT = appletvos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = 3;
@@ -953,12 +957,16 @@
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: dmp9693@gmail.com (654C68H8J8)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = X3TZWBGFYQ;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -970,7 +978,9 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PROVISIONING_PROFILE = "066ce074-734e-45cd-aece-9de3a3aa20fe";
 				SDKROOT = appletvos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = 3;
 				TVOS_DEPLOYMENT_TARGET = 9.0;
 				VALIDATE_PRODUCT = YES;
@@ -979,21 +989,20 @@
 		};
 		090AB8EE1BA5BFDF00CDB05D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F773228F1D8BCB1D00D574A9 /* NotMySecretConfigWink.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "iPhone Developer";
 				DEFINES_MODULE = YES;
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = "$(inherited)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/tvOS",
 				);
 				INFOPLIST_FILE = StreamCenter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.timjarratt.scx;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dpisano.scx;
 				PRODUCT_NAME = StreamCenter;
 				PROVISIONING_PROFILE = "117ec930-3252-437c-b5e0-3b62922a9d93";
 				SWIFT_VERSION = 3.0;
@@ -1002,14 +1011,13 @@
 		};
 		090AB8EF1BA5BFDF00CDB05D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F773228F1D8BCB1D00D574A9 /* NotMySecretConfigWink.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = "App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "iPhone Developer";
 				DEFINES_MODULE = YES;
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = "$(inherited)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/tvOS",
@@ -1017,7 +1025,7 @@
 				INFOPLIST_FILE = StreamCenter/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = com.timjarratt.scx;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dpisano.scx;
 				PRODUCT_NAME = StreamCenter;
 				PROVISIONING_PROFILE = "117ec930-3252-437c-b5e0-3b62922a9d93";
 				SWIFT_VERSION = 3.0;
